@@ -1,0 +1,13 @@
+{
+  "name": "simpletheme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal plain-HTML theme with live dev server",
+  "scripts": {
+    "start": "live-server --open=./index.html --watch=.",
+    "start:no-open": "live-server --watch=."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
