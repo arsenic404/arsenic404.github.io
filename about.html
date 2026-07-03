@@ -3,27 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>About — Simple Theme</title>
+    <title>About — Minnie Goar</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/">SimpleTheme</a>
-        <nav class="site-nav">
+        <a class="brand" href="/">Minnie Goar</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌗</button>
+        <nav class="site-nav" id="siteNav">
           <a href="/">Home</a>
           <a href="about.html">About</a>
         </nav>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌗</button>
       </div>
     </header>
 
-    <main class="container">
-      <h1>About SimpleTheme</h1>
-      <p>This small theme demonstrates a clean starting point for static sites: semantic HTML, CSS variables for theming, and a few core components.</p>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>About Minnie Goar</h1>
+          <p class="lead">This small theme demonstrates a clean starting point for static sites: semantic HTML, CSS variables for theming, and a few core components.</p>
+        </div>
+      </section>
 
-      <section class="cards">
+      <section class="features container">
         <div class="card">
           <h3>Usage</h3>
           <p>Copy the files or use them as a starter for your GitHub Pages site.</p>
@@ -37,7 +42,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> SimpleTheme</p>
+        <p>© <span id="year"></span> Minnie Goar</p>
       </div>
     </footer>
 
