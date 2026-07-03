@@ -1,109 +1,111 @@
 /* Theme tokens: default uses system preference; classes override for explicit toggling */
 :root{
-  --radius: 10px;
-  --container: 1100px;
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 48px;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --transition-fast: 180ms ease-in-out;
+  --radius: 10px; /* default border radius for cards/buttons */
+  --container: 1100px; /* maximum width used by the centered page container */
+  --space-1: 8px; /* smallest spacing unit for tight gaps */
+  --space-2: 16px; /* base spacing unit for padding and gaps */
+  --space-3: 24px; /* medium spacing unit for larger spacing */
+  --space-4: 48px; /* large spacing unit for section padding */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; /* primary sans-serif font stack */
+  --transition-fast: 180ms ease-in-out; /* fast transition timing for color/background changes */
 }
 
 /* Light theme: blue & green */
 :root{
-  --bg: #f0fbff; /* very pale blue */
-  --surface: #ffffff;
-  --card: #fbffff;
-  --text: #04303a; /* deep teal */
-  --muted: #3b82f6; /* blue-500 */
-  --muted-2: #065f46; /* green-800 */
-  --accent: #10b981; /* green */
-  --accent-600: #0ea5e9; /* blue */
+  --bg: #f0fbff; /* page background color in light mode */
+  --surface: #ffffff; /* panel/surface background color in light mode */
+  --card: #fbffff; /* card background color in light mode */
+  --text: #04303a; /* main text color in light mode */
+  --muted: #3b82f6; /* primary accent/muted text color in light mode */
+  --muted-2: #065f46; /* secondary accent/muted color in light mode */
+  --accent: #10b981; /* primary action accent color */
+  --accent-600: #0ea5e9; /* secondary accent color used in gradients */
 }
 
 /* Dark theme: hot pink & orange */
 @media (prefers-color-scheme: dark){
   :root{
-    --bg: linear-gradient(180deg,#0b0213,#120217);
-    --surface: #0b0710;
-    --card: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-    --text: #fdf6fb;
-    --muted: #ff77c4; /* hot pink */
-    --muted-2: #ff9a55; /* orange */
-    --accent: #ff4da6; /* hot pink */
-    --accent-600: #ff7a18; /* orange */
+    --bg: linear-gradient(180deg,#0b0213,#120217); /* page background gradient in dark mode */
+    --surface: #0b0710; /* panel/surface background color in dark mode */
+    --card: rgba(20,18,30,0.9); /* stronger card background in dark mode */
+    --card-border: 1px solid rgba(255,255,255,0.08); /* subtle border for dark cards */
+    --text: #fdf6fb; /* main text color in dark mode */
+    --muted: #ff77c4; /* primary accent/muted color in dark mode */
+    --muted-2: #ff9a55; /* secondary accent/muted color in dark mode */
+    --accent: #ff4da6; /* primary action accent in dark mode */
+    --accent-600: #ff7a18; /* secondary accent in dark mode */
   }
 }
 
 /* Explicit theme classes (override system) */
 .theme-light{
-  --bg: #f0fbff;
-  --surface: #ffffff;
-  --card: #fbffff;
-  --text: #04303a;
-  --muted: #3b82f6;
-  --muted-2: #065f46;
-  --accent: #10b981;
-  --accent-600: #0ea5e9;
+  --bg: #f0fbff; /* forced light background color */
+  --surface: #ffffff; /* forced light panel background */
+  --card: #fbffff; /* forced light card background */
+  --text: #04303a; /* forced light text color */
+  --muted: #3b82f6; /* forced light muted accent */
+  --muted-2: #065f46; /* forced light secondary accent */
+  --accent: #10b981; /* forced light primary accent */
+  --accent-600: #0ea5e9; /* forced light secondary accent */
 }
 .theme-dark{
-  --bg: linear-gradient(180deg,#0b0213,#120217);
-  --surface: #0b0710;
-  --card: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  --text: #fdf6fb;
-  --muted: #ff77c4;
-  --muted-2: #ff9a55;
-  --accent: #ff4da6;
-  --accent-600: #ff7a18;
+  --bg: linear-gradient(180deg,#0b0213,#120217); /* forced dark background gradient */
+  --surface: #0b0710; /* forced dark panel background */
+  --card: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); /* forced dark card background */
+  --text: #fdf6fb; /* forced dark text color */
+  --muted: #ff77c4; /* forced dark muted accent */
+  --muted-2: #ff9a55; /* forced dark secondary accent */
+  --accent: #ff4da6; /* forced dark primary accent */
+  --accent-600: #ff7a18; /* forced dark secondary accent */
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*{box-sizing:border-box} /* include padding and border in element size calculations */
+html,body{height:100%} /* make page wrapper span the full viewport height */
 body{
-  margin:0;
-  font-family:var(--font-sans);
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  margin:0; /* remove default browser body margin */
+  font-family:var(--font-sans); /* use the defined sans-serif font stack */
+  background:var(--bg); /* set the body background from theme token */
+  color:var(--text); /* set the body text color from theme token */
+  -webkit-font-smoothing:antialiased; /* improve font rendering in WebKit browsers */
+  -moz-osx-font-smoothing:grayscale; /* improve font rendering in Firefox on macOS */
+  transition: background var(--transition-fast), color var(--transition-fast); /* animate theme changes */
 }
 
-.container{max-width:var(--container);margin:0 auto;padding:0 var(--space-2)}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--space-2)} /* center content and add horizontal padding */
 
-.site-header{background:transparent;padding:var(--space-2) 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{color:var(--text);font-weight:700;text-decoration:none;font-size:1.125rem}
+.site-header{background:transparent;padding:var(--space-2) 0} /* header area with vertical spacing */
+.header-inner{display:flex;align-items:center;justify-content:space-between} /* flex layout for header items */
+.brand{color:var(--text);font-weight:700;text-decoration:none;font-size:1.125rem} /* branding link styling */
 
-.site-nav{display:flex;gap:var(--space-2)}
-.site-nav a{color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:6px}
-.site-nav a:hover{color:var(--text);background:rgba(255,255,255,0.02)}
+.site-nav{display:flex;gap:var(--space-2)} /* navigation links lined up with spacing */
+.site-nav a{color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:6px} /* nav link styling */
+.site-nav a:hover{color:var(--text);background:rgba(255,255,255,0.02)} /* nav link hover state */
 
-.nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.25rem}
+.nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.25rem} /* mobile nav toggle button hidden by default */
 
-.hero{padding:var(--space-4) 0;text-align:center}
-.hero h1{font-size:2rem;margin:0 0 var(--space-2)}
-.lead{color:var(--muted);margin:0 0 var(--space-3)}
-.btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-600));color:var(--surface);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}
+.hero{padding:var(--space-4) 0;text-align:center} /* hero section with vertical padding and centered content */
+.hero h1{font-size:2rem;margin:0 0 var(--space-2)} /* hero title size and bottom spacing */
+.lead{color:var(--muted);margin:0 0 var(--space-3)} /* lead paragraph color and spacing */
+.btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-600));color:var(--surface);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600} /* button styling with gradient background */
 
-.features{display:grid;grid-template-columns:1fr;gap:var(--space-2);padding:var(--space-4) 0}
-.card{background:var(--card);padding:var(--space-3);border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.12)}
+.features{display:grid;grid-template-columns:1fr;gap:var(--space-2);padding:var(--space-4) 0} /* feature cards grid layout with spacing */
+.card{background:var(--card);padding:var(--space-3);border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.12);border:var(--card-border,transparent)} /* card styling with background, padding, shadow, and optional border */
 
-.site-footer{padding:var(--space-3) 0;color:var(--muted)}
+.site-footer{padding:var(--space-3) 0;color:var(--muted)} /* footer spacing and muted text color */
 
-/* Responsive */
+/* Responsive layout for wider screens */
 @media(min-width:700px){
-  .hero h1{font-size:2.5rem}
-  .features{grid-template-columns:repeat(3,1fr)}
-  .site-nav{display:flex}
+  .hero h1{font-size:2.5rem} /* larger hero heading on desktop */
+  .features{grid-template-columns:repeat(3,1fr)} /* three-column feature grid on larger screens */
+  .site-nav{display:flex} /* keep nav visible on desktop */
 }
 
+/* Responsive layout for smaller screens */
 @media(max-width:699px){
-  .site-nav{display:none}
-  .nav-toggle{display:block}
-  .site-nav.open{display:block;margin-top:var(--space-2)}
+  .site-nav{display:none} /* hide navigation links on mobile by default */
+  .nav-toggle{display:block} /* show the mobile menu toggle button */
+  .site-nav.open{display:block;margin-top:var(--space-2)} /* show menu when open state is active */
 }
 
-/* Utility */
-code{background:#071428;padding:2px 6px;border-radius:6px;color:var(--accent-600)}
+/* Utility style for inline code snippets */
+code{background:#071428;padding:2px 6px;border-radius:6px;color:var(--accent-600)} /* inline code appearance */
